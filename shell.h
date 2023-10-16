@@ -29,6 +29,20 @@ typedef struct list_s
 	struct list_s *next;
 } list_t;
 
+/**
+ * struct info_s - contins arg passed into a function
+ * @argv: argument vector
+ * @argc: argument count
+ * @status:Exit status of the last executed command
+ * @err_num: Error number
+ * @history: command history
+ * @alias: Alias list
+ * @env: Environment variable list
+ * @environ: copy of environment var as string array
+ * @env_changed: Flag tracks changes in environment list
+ * @cmd_buf_type: command buffer type (CMD_CHAIN, CMD_AND, CMD_OR)
+ *
+ */
 
 typedef struct info_s
 {
@@ -44,8 +58,15 @@ typedef struct info_s
 	int cmd_buf_type; /* com buf type */
 } info_t;
 
+/* My functions */
 int _theexit(info_t *info);
 int _thecd(info_t *info);
 int _thehelp(info_t *info);
+
+/* Error handling functions */
+void _eputs(char *str);
+int _eputchar(char c);
+int _putfd(char c, int fd);
+int _putsfd(char *str, int fd);
 
 #endif
