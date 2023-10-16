@@ -26,11 +26,12 @@ int main(void)
 int num1 = 10;
 int num2 = 20;
 int sum = 0;
+char result_str[20];
+int result_len;
 
 add_numbers(num1, num2, &sum);
 
-char result_str[20];
-int result_len = snprintf(result_str, sizeof(result_str), "sum: %d\n", sum);
+result_len = snprintf(result_str, sizeof(result_str), "sum = %d\n", sum);
 
 if (result_len < 0)
 {
