@@ -63,7 +63,6 @@ int _theexit(info_t *info);
 int _thecd(info_t *info);
 int _thehelp(info_t *info);
 
-
 /* Declaration function */
 int _erratoi(const char *str);
 void print_error(info_t *info, const char *message);
@@ -71,11 +70,15 @@ void _puts(const char *str);
 char *_getenv(info_t *info, const char *name);
 int _strcmp(const char *s1, const char *s2);
 
-
 /* Error handling functions */
 void _eputs(char *str);
 int _eputchar(char c);
 int _putfd(char c, int fd);
 int _putsfd(char *str, int fd);
+
+/* 01inbuilt */
+int display_prompt;
+ssize_t read_command(info_t *info, char *command, size_t max_length);
+int execute_command(const char *command);
 
 #endif
